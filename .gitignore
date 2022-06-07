@@ -1,1 +1,11 @@
 node_modules
+/views/404.hbs
+/views/404.html
+/views/404.pug
+/views/shop.hbs
+/views/shop.pug
+/views/shop.html
+/views/add-product.pug
+/views/add-product.hbs
+/views/add-product.html
+/views/layout
