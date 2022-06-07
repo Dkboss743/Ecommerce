@@ -1,4 +1,4 @@
 node_modules
-*.html
-*.pug
-*.hbs
+.html
+.pug
+.hbs
