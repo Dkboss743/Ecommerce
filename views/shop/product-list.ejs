@@ -20,9 +20,10 @@
           <p class="product__description"><%= element.description %></p>
         </div>
         <div class="card__actions">
-          <form method="POST" action="" add-to-cart>
-            <button class="btn">Add to Cart</button>
-          </form>
+          <a href="/products/<%= element.id%>" class="btn" method="POST"
+            >Details</a
+          >
+          <%- include("../includes/add-to-cart" , {product: element}) %>
         </div>
       </article>
       <% }) %>
