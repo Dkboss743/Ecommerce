@@ -10,6 +10,7 @@ const getProductsFromFile = (cb) => {
     if (err) {
       return cb([]);
     }
+
     cb(JSON.parse(fileData));
   });
 };
