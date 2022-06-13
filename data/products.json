@@ -1,9 +1,1 @@
-[
-  {
-    "title": "Coder Help",
-    "imageUrl": "https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png",
-    "description": "The short description is exactly that—short and sweet. Consider it a blurb, elevator pitch, or hook. It tells enough about your book to keep readers interested, and delivers enough punch to have them searching for the long book description to read more. ",
-    "price": "128.6$",
-    "id": "1234"
-  }
-]
+[{"id":"0.9792819227763074","title":"Book","imageUrl":"https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png","description":"A good book nice","price":100}]

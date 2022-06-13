@@ -19,7 +19,7 @@ const shopRoutes = require("./routes/shop");
 const { request } = require("http");
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname + "/public")));
 app.use("/admin", adminRoutes.routes);
 app.use(shopRoutes.routes);
 app.use(errorController.get404);

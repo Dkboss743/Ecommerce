@@ -1,5 +1,4 @@
 <%- include("../includes/head.ejs") %>
-<link rel="stylesheet" href="/css/product.css" />
 
 <body>
   <%- include("../includes/navigation.ejs") %>
@@ -16,7 +15,7 @@
           <img src="<%= element.imageUrl %> " alt="<%= element.title %> " />
         </div>
         <div class="card__content">
-          <h2 class="product__price"><%= element.price %></h2>
+          <h2 class="product__price"><%= element.price %>$</h2>
           <p class="product__description"><%= element.description %></p>
         </div>
         <div class="card__actions">
