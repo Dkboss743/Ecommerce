@@ -16,9 +16,12 @@ exports.postAddProduct = (req, res, next) => {
   const description = req.body.description;
   // console.log(title, imageUrl, price, description);
   const product = new Product(null, title, imageUrl, description, price);
-  product.save();
-  res.redirect("/");
+  product
+    .save()
+    .then(() => res.redirect("/"))
+    .catch((err) => console.log(err));
 };
+
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
 
