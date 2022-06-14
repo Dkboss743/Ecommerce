@@ -25,3 +25,27 @@
 .product__description {
   text-align: center;
 }
+
+.card__content__cart {
+  /* background-color: red; */
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+.cart_prod_price p {
+  font-size: 1.2rem;
+  text-align: end;
+  padding-right: 1rem;
+  font-weight: bold;
+}
+.cart_prod_price p {
+  margin-left: auto;
+}
+
+.card__image_cart {
+  display: inline;
+}
+.card__image_cart img {
+  width: 30%;
+}

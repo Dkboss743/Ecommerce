@@ -39,7 +39,7 @@ module.exports = class Product {
       } else {
         console.log(this);
 
-        this.id = Math.random().toString();
+        this.id = Math.floor(Math.random() * 10000 + 1).toString();
         products.push(this);
         fs.writeFile(p, JSON.stringify(products), (err) => {
           console.log(err);
@@ -59,12 +59,13 @@ module.exports = class Product {
   }
   static deleteProduct(id) {
     getProductsFromFile((products) => {
-      const product = products.filter((p) => {
-        return p.id === id;
+      const updatedproduct = products.filter((p) => {
+        console.log(p.id, id);
+        return Number(p.id) !== Number(id);
       });
-      // console.log(product);
+      console.log(updatedproduct);
 
-      fs.writeFile(p, JSON.stringify(product), (err) => {
+      fs.writeFile(p, JSON.stringify(updatedproduct), (err) => {
         console.log(err);
       });
     });

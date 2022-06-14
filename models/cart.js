@@ -5,15 +5,7 @@ const p = path.join(
   "data",
   "cart.json"
 );
-const getProductsFromFile = (cb) => {
-  return fs.readFile(p, (err, fileData) => {
-    if (err) {
-      return cb([]);
-    }
 
-    cb(JSON.parse(fileData));
-  });
-};
 module.exports = class Cart {
   static addProduct(id, productPrice) {
     fs.readFile(p, (err, fileContent) => {
@@ -47,6 +39,13 @@ module.exports = class Cart {
     });
   }
   static getCartProduct(cb) {
-    getProductsFromFile(cb);
+    fs.readFile(p, (err, fileContent) => {
+      const cart = JSON.parse(fileContent);
+      if (err) {
+        cb(null);
+      } else {
+        cb(cart);
+      }
+    });
   }
 };
