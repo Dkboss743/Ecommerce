@@ -7,7 +7,11 @@ const sequelize = require("./util/database");
 const Product = require("./models/product");
 const User = require("./models/user");
 const Cart = require("./models/cart");
-const cartItem = require("./models/cart-item");
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
+const CartItem = require("./models/cart-item");
+const Order = require("./models/order");
+const OrderItem = require("./models/order-item");
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -20,9 +24,6 @@ app.set("views", "views");
 //   })
 // );
 
-const adminRoutes = require("./routes/admin");
-const shopRoutes = require("./routes/shop");
-const CartItem = require("./models/cart-item");
 // const { request } = require("http");
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,7 +51,9 @@ Cart.belongsToMany(Product, {
 Product.belongsToMany(Cart, {
   through: CartItem,
 });
-
+Order.belongsTo(User);
+User.hasMany(Order);
+Order.belongsToMany(Product, { through: OrderItem });
 sequelize
   .sync({
     // force: true,
