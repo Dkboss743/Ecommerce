@@ -17,7 +17,7 @@
           </div>
 
           <div class="cart_prod_price">
-            <p><%=product.price %>$ x<%= product.cartItem.quantity %></p>
+            <p><%=product.price %>$ x<%= product.quantity %></p>
           </div>
         </div>
         <div class="card__actions">
@@ -26,7 +26,7 @@
               class="btn"
               type="hidden"
               name="productId"
-              value="<%=product.id %>"
+              value="<%=product._id %>"
             />
             <button class="btn danger" type="submit">Delete</button>
           </form>
