@@ -1,48 +1,32 @@
-<%- include("../includes/head.ejs") %>
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cart.css">
+    </head>
 
-<body>
-  <%- include("../includes/navigation.ejs") %>
-  <main>
-    <% if (prods.length) { %>
-    <div class="grid">
-      <% prods.forEach(product => { %>
-
-      <article class="card product-item">
-        <header class="card__header">
-          <h1 class="product__title"><%= product.title %></h1>
-        </header>
-        <div class="card__content__cart">
-          <div class="card__image_cart">
-            <img src="<%= product.imageUrl %> " alt="<%= product.title %> " />
-          </div>
-
-          <div class="cart_prod_price">
-            <p><%=product.price %>$ x<%= product.quantity %></p>
-          </div>
-        </div>
-        <div class="card__actions">
-          <form action="/cart-delete-item" method="POST">
-            <input
-              class="btn"
-              type="hidden"
-              name="productId"
-              value="<%=product._id %>"
-            />
-            <button class="btn danger" type="submit">Delete</button>
-          </form>
-        </div>
-      </article>
-      <% }) %>
-    </div>
-    <div class="centered">
-      <form action="/create-order" method="POST">
-        <button type="submit" class="btn">Order Now!</button>
-      </form>
-    </div>
-    <% } else { %>
-    <h1>No Products</h1>
-    <% } %>
-  </main>
-  <%- include("../includes/end.ejs") %>
-</body>
-<!-- "https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" -->
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main>
+            <% if (products.length > 0) { %>
+                <ul class="cart__item-list">
+                    <% products.forEach(p => { %>
+                        <li class="cart__item">
+                            <h1><%= p.title %></h1>
+                            <h2>Quantity: <%= p.quantity %></h2>
+                            <form action="/cart-delete-item" method="POST">
+                                <input type="hidden" value="<%= p._id %>" name="productId">
+                                <button class="btn danger" type="submit">Delete</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+                <hr>
+                <div class="centered">
+                    <form action="/create-order" method="POST">
+                        <button type="submit" class="btn">Order Now!</button>
+                    </form>
+                </div>
+                
+            <% } else { %>
+                <h1>No Products in Cart!</h1>
+            <% } %>
+        </main>
+        <%- include('../includes/end.ejs') %>

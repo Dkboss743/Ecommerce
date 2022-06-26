@@ -21,7 +21,6 @@ exports.postAddProduct = (req, res, next) => {
     null,
     req.user._id
   );
-  console.log(product);
 
   product
     .save()
@@ -36,7 +35,7 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
-  console.log(typeof prodId, prodId, prodId.length);
+
   Product.deleteById(prodId)
     .then(() => {
       console.log("DESTROYED PRODUCT");

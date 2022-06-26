@@ -7,7 +7,7 @@ exports.getProducts = (req, res, next) => {
       res.render("shop/product-list", {
         prods: products,
         pageTitle: "Shop",
-        path: "/",
+        path: "/products",
         hasProducts: products.length > 0,
         activeShop: true,
         productCSS: true,
@@ -19,11 +19,8 @@ exports.getProducts = (req, res, next) => {
 };
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
-
   Product.findById(prodId)
     .then((product) => {
-      // console.log(rows);
-
       res.render("shop/product-detail", {
         product: product,
         pageTitle: product.title,
@@ -82,7 +79,7 @@ exports.getCheckout = (req, res, next) => {
 };
 exports.postCartDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
-  console.log(prodId);
+  
 
   req.user
     .deleteItemFromCart(prodId)
@@ -95,7 +92,7 @@ exports.getOrders = (req, res, next) => {
   req.user
     .getOrders()
     .then((orders) => {
-      console.log(orders);
+    
 
       res.render("shop/orders", {
         path: "/orders",
@@ -127,8 +124,10 @@ exports.getCart = (req, res, next) => {
   req.user
     .getUserCart()
     .then((products) => {
+     
+
       res.render("shop/cart", {
-        prods: products,
+        products: products,
         path: "/cart",
         pageTitle: "Your Cart",
       });
